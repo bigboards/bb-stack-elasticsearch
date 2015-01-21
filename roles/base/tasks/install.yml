@@ -15,6 +15,9 @@
     - elasticsearch.yml
     - logging.yml
 
+- name: make sure the docker image is the latest one
+  shell: docker pull bigboards/elasticsearch-armv7l
+
 - name: make sure the container exists
   docker:
     name: "elasticsearch"
