@@ -1,0 +1,10 @@
+- hosts: es_node
+  sudo: yes
+  roles:
+    - { role: base, mode: 'install' }
+
+- hosts: localhost
+  sudo: yes
+  tasks:
+    - name: generate the mapping file
+      template: src=mapping.yml.j2 dest=./mapping.yml

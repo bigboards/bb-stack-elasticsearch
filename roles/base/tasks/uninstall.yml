@@ -1,0 +1,16 @@
+- name: make sure the directories are removed
+  file: state=absent path={{ item }}
+  with_items:
+    - /data/{{ tint.owner }}/{{ tint.id }}/config
+    - /data/{{ tint.owner }}/{{ tint.id }}/data
+    - /data/{{ tint.owner }}/{{ tint.id }}/files
+    - /data/{{ tint.owner }}/{{ tint.id }}
+
+- name: make sure the container exists
+  docker:
+    name: "elasticsearch"
+    image: "bigboards/elasticsearch-armv7l"
+    state: "absent"
+
+- name: make sure the service script is removed
+  file: state=absent path=/etc/init/elasticsearch

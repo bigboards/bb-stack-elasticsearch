@@ -1,0 +1,11 @@
+type: stack
+views:
+
+parameters:
+  - name: es_cluster_name
+    type: text
+    description: the name of the cluster
+
+roles:
+  - name: es_node
+    cardinality: n

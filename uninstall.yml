@@ -1,0 +1,9 @@
+- hosts: es_node
+  sudo: yes
+  roles:
+    - { role: base, mode: 'uninstall' }
+
+- hosts: localhost
+  sudo: yes
+  tasks:
+    - file: state=absent path=/opt/bb/tints.d/stack/{{ tint.owner }}/{{ tint.id }}

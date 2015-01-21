@@ -1,0 +1,34 @@
+- name: make sure the directories are available
+  file: state=directory path={{ item }}
+  with_items:
+    - /data
+    - /data/
+    - /data/{{ tint.owner }}
+    - /data/{{ tint.owner }}/{{ tint.id }}
+    - /data/{{ tint.owner }}/{{ tint.id }}/config
+    - /data/{{ tint.owner }}/{{ tint.id }}/data
+    - /data/{{ tint.owner }}/{{ tint.id }}/files
+
+- name: make sure the sxserver configuration files are available
+  copy: src={{ item }} dest={{ config_path }}/{{ item }}
+  with_items:
+    - elasticsearch.yml
+    - logging.yml
+
+- name: make sure the container exists
+  docker:
+    name: "elasticsearch"
+    net: "host"
+    ports: "9200:9200,9300:9300"
+    publish_all_ports: "yes"
+    volumes: "/data/{{ tint.owner }}/{{ tint.id }}/config:/etc/elasticsearch,/data/{{ tint.owner }}/{{ tint.id }}/files:/tmp,/data/{{ tint.owner }}/{{ tint.id }}/data:/data"
+    memory_limit: 1073741824
+    image: "bigboards/elasticsearch-armv7l"
+    command: "/usr/share/elasticsearch/bin/elasticsearch"
+    state: running
+
+- name: make sure the init file is available
+  copy: src=etc/init/elasticsearch.conf dest=/etc/init/elasticsearch.conf
+
+- name: make sure the service is started at boot
+  service: name=elasticsearch enabled=yes state=started
