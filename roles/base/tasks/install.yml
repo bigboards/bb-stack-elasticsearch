@@ -10,7 +10,7 @@
     - /data/{{ tint.owner }}/{{ tint.id }}/files
 
 - name: make sure the sxserver configuration files are available
-  copy: src={{ item }} dest={{ config_path }}/{{ item }}
+  template: src={{ item }} dest={{ config_path }}/{{ item }}
   with_items:
     - elasticsearch.yml
     - logging.yml
