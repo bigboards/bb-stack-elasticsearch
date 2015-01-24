@@ -1,7 +1,0 @@
-[es_node]
-{{hex.name}}-n1	ansible_ssh_user=bb
-{{hex.name}}-n2	ansible_ssh_user=bb
-{{hex.name}}-n3	ansible_ssh_user=bb
-{{hex.name}}-n4	ansible_ssh_user=bb
-{{hex.name}}-n5	ansible_ssh_user=bb
-{{hex.name}}-n6	ansible_ssh_user=bb

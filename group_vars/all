@@ -1,7 +1,0 @@
-tint:
-  owner: bigboards
-  id: bb-stack-elasticsearch
-
-config_path: "/data/bigboards/bb-stack-elasticsearch/config"
-files_path: "/data/bigboards/bb-stack-elasticsearch/files"
-data_path: "/data/bigboards/bb-stack-elasticsearch/data"
