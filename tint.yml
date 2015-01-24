@@ -1,4 +1,7 @@
 stack:
+  views:
+    - description: "Marvel"
+      url: "http:{{ hex.name }}-n1:9200/_plugin/marvel"
   containers:
     elasticsearch:
       image: "bigboards/elasticsearch-marvel-armv7l"
