@@ -12,7 +12,7 @@ stack:
         - 9300
       config: "/elasticsearch/config"
   groups:
-    es_node:
+    - name: "es_node"
       runs_on: "all"
       containers:
         - "elasticsearch"
