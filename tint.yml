@@ -10,7 +10,9 @@ stack:
       ports:
         - 9200
         - 9300
-      config: "/elasticsearch/config"
+      config: 
+        host_path: "elasticsearch"
+        container_path: "/elasticsearch/config"
   groups:
     - name: "es_node"
       runs_on: "all"
