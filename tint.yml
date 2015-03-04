@@ -1,3 +1,11 @@
+slug: bb-stack-elasticsearch
+name: Elasticsearch
+description: Elasticsearch is a highly scalable open-source full-text search and analytics engine
+type: stack
+owner:
+  username: bigboards
+  displayName: bigboards
+logo: http://nest.azurewebsites.net/images/elasticsearch-net-nuget-icon.png
 stack:
   views:
     - label: "Kopf"
