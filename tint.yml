@@ -8,21 +8,21 @@ owner:
 logo: http://nest.azurewebsites.net/images/elasticsearch-net-nuget-icon.png
 stack:
   views:
-    - label: "Kopf"
-      url: "http://{{'{{'}} nodes[hex.name + '-n1'].ip {{'))'}}:9200/_plugin/kopf"
-      description: "kopf is a simple web administration tool for ElasticSearch written in JavaScript + AngularJS + jQuery + Twitter bootstrap."
+    - label: Kopf
+      url: http://{{'{{'}} nodes[hex.name + '-n1'].ip {{'}}'}}:9200/_plugin/kopf
+      description: kopf is a simple web administration tool for ElasticSearch written in JavaScript + AngularJS + jQuery + Twitter bootstrap.
   containers:
     elasticsearch:
-      image: "bigboards/elasticsearch-armv7l"
-      command: "/elasticsearch/bin/elasticsearch"
+      image: bigboards/elasticsearch-armv7l
+      command: /elasticsearch/bin/elasticsearch
       ports:
         - 9200
         - 9300
       config: 
-        host_path: "elasticsearch"
-        container_path: "/elasticsearch/config"
+        host_path: elasticsearch
+        container_path: /elasticsearch/config
   groups:
-    - name: "es_node"
-      runs_on: "all"
+    - name: es_node
+      runs_on: all
       containers:
-        - "elasticsearch"
+        - elasticsearch
