@@ -205,6 +205,7 @@ path.data: /data/elasticsearch
 # Set the bind address specifically (IPv4 or IPv6):
 #
 #network.bind_host: 192.168.0.1
+network.bind_host: 0
 
 # Set the address other nodes will use to communicate with this node. If not
 # set, it is automatically derived. It must point to an actual IP address.
@@ -214,6 +215,7 @@ path.data: /data/elasticsearch
 # Set both 'bind_host' and 'publish_host':
 #
 #network.host: 192.168.0.1
+network.host: _non_loopback_
 
 # Set a custom port for the node to node communication (9300 by default):
 #
@@ -328,6 +330,7 @@ path.data: /data/elasticsearch
 #    to perform discovery when new nodes (master or data) are started:
 #
 #discovery.zen.ping.unicast.hosts: ["host1", "host2:port"]
+discovery.zen.ping.unicast.hosts: [ {{ansible_local.bb.network.range}}.1,  {{ansible_local.bb.network.range}}.2, {{ansible_local.bb.network.range}}.3, {{ansible_local.bb.network.range}}.4, {{ansible_local.bb.network.range}}.5,  {{ansible_local.bb.network.range}}.6 ]
 
 # EC2 discovery allows to use AWS EC2 API in order to perform discovery.
 #
