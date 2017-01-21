@@ -1,0 +1,3 @@
+# https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html
+- name: kernel setting forced by elasticsearch bootstrap checks
+  shell: "sysctl -w vm.max_map_count=262144"
