@@ -84,14 +84,14 @@ discovery.zen.ping.unicast.hosts:
 #
 # Prevent the "split brain" by configuring the majority of nodes (total number of nodes / 2 + 1):
 #
-discovery.zen.minimum_master_nodes: {{ hex.node_count / 2 + 1 | round | default(4) }}
+discovery.zen.minimum_master_nodes: {{ hex.node_count / 2 + 1 | round }}
 #
 # For more information, see the documentation at:
 # <https://www.elastic.co/guide/en/elasticsearch/reference/5.0/modules-discovery-zen.html>
 #
 # ---------------------------------- Gateway -----------------------------------#
 # Block initial recovery after a full cluster restart until N nodes are started:#
-gateway.recover_after_nodes: {{ hex.node_count / 2 + 1 | round | default(4) }}
+gateway.recover_after_nodes: {{ hex.node_count / 2 + 1 | round }}
 #
 # Begin recovering after 5 minutes or after 3 nodes have joined the cluster, whichever comes first.
 #
