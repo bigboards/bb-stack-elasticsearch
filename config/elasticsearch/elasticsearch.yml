@@ -88,7 +88,12 @@ discovery.zen.minimum_master_nodes: 4
 #
 # ---------------------------------- Gateway -----------------------------------#
 # Block initial recovery after a full cluster restart until N nodes are started:#
-#gateway.recover_after_nodes: 3
+gateway.recover_after_nodes: 4
+#
+# Begin recovering after 5 minutes or after 3 nodes have joined the cluster, whichever comes first.
+#
+gateway.expected_nodes: 6
+gateway.recover_after_time: 5m
 #
 # For more information, see the documentation at:
 # <https://www.elastic.co/guide/en/elasticsearch/reference/5.0/modules-gateway.html>
